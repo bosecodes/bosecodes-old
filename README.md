@@ -1,16 +1,21 @@
-### Hi there 👋
+​
+from __future__ import annotations
 
-<!--
-**bosecodes/bosecodes** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+import json
+from dataclasses import asdict, dataclass
 
-Here are some ideas to get you started:
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+@dataclass
+class Arsenal:
+    languages: tuple[str, ...] = ("Python", "C++", "JAVA")
+    ml-tech     : tuple[str, ...] = ("Pandas", "ScikitLearn", "Computer Vision", "CNNs")
+    web  : tuple[str, ...] = ("Flask", "HTML", "Bootstrap")
+    databases: tuple[str, ...] = ("SQLite", "MongoDB", "MySQL")
+
+    def jsonify(self) -> str:
+        return json.dumps(asdict(self), indent=4)
+
+
+arsenal = Arsenal()
+print(arsenal.jsonify())
+​
